@@ -5,7 +5,10 @@ from jsonschema import validate, ValidationError
 with open('schema.json', 'r') as f:
     schema = json.load(f)
 
-with open('data.json', 'r') as f:
+schema['properties']['name']['pattern'] = '^[A-Z][a-zA-Z0-9]*[0-9]$'
+schema['properties']['name']['minLength'] = 3
+
+with open('data.json') as f:
     data = json.load(f)
 
 for item in data:

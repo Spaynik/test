@@ -26,10 +26,14 @@ for i, item in enumerate(data):
 with open("expressions.txt", "r") as file:
     expressions = file.readlines()
 
-for vm in data:
-    print(f"JSON-данные валидны для {vm['name']}")
-    disk_sizes = vm['disk_sizes']
-    for expr in expressions:
-        result = eval(expr.strip())
-        print(f"Выражение: {expr.strip()} для {vm['name']}")
-        print(f"Результат: {result}")
+with open("result.html", "w", encoding='utf-8') as f:
+    for vm in data:
+        print(f"JSON-данные валидны для {vm['name']}")
+        disk_sizes = vm['disk_sizes']
+        for expr in expressions:
+            result = eval(expr.strip())
+            print(f"Выражение: {expr.strip()} для {vm['name']}")
+            print(f"Результат: {result}")
+            if expr.startswith('len(disk_sizes)'):
+                f.write(f"<h1>{vm['name']}</h1>\n")
+                f.write(f"<p>IP: {vm['ip_address']}, Количество дисков: {result}</p>\n")

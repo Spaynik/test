@@ -22,3 +22,14 @@ for i, item in enumerate(data):
         print(f"JSON-данные валидны после изменения для {item['name']}, IP: {item['ip_address']}")
     except ValidationError as e:
         print(f"JSON-данные невалидны после изменения для {item['name']}, IP: {item['ip_address']}: {e.message}")
+
+with open("expressions.txt", "r") as file:
+    expressions = file.readlines()
+
+for vm in data:
+    print(f"JSON-данные валидны для {vm['name']}")
+    disk_sizes = vm['disk_sizes']
+    for expr in expressions:
+        result = eval(expr.strip())
+        print(f"Выражение: {expr.strip()} для {vm['name']}")
+        print(f"Результат: {result}")

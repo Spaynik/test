@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "cpu": {
+          "type": "integer"
+        },
+        "ram": {
+          "type": "integer"
+        }
+      }
+    },
+    "disk_sizes": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100
+      }
+    }
+  },
+  "required": [
+    "name",
+    "disk_sizes"
+  ]
+}

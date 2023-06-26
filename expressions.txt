@@ -1,0 +1,2 @@
+len(disk_sizes)
+sum(disk_sizes)

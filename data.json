@@ -1,0 +1,25 @@
+[
+  {
+    "name": "VM1",
+    "configuration": {
+      "cpu": 2,
+      "ram": 4
+    },
+    "disk_sizes": [
+      80,
+      95,
+      75
+    ]
+  },
+  {
+    "name": "VM2",
+    "configuration": {
+      "cpu": 4,
+      "ram": 8
+    },
+    "disk_sizes": [
+      25,
+      30
+    ]
+  }
+]
